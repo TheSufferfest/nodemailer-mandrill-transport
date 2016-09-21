@@ -2,8 +2,11 @@
 
 A Mandrill transport for Nodemailer.
 
-[![Build Status](https://travis-ci.org/Rebelmail/nodemailer-mandrill-transport.svg?branch=sm-readme)](https://travis-ci.org/Rebelmail/nodemailer-mandrill-transport)
-[![NPM version](https://badge.fury.io/js/nodemailer-mandrill-transport.png)](http://badge.fury.io/js/nodemailer-mandrill-transport)
+[![Build Status](https://travis-ci.org/Rebelmail/nodemailer-mandrill-transport.svg?branch=master)](https://travis-ci.org/Rebelmail/nodemailer-mandrill-transport)
+[![Coverage Status](https://coveralls.io/repos/github/Rebelmail/nodemailer-mandrill-transport/badge.svg?branch=master)](https://coveralls.io/github/Rebelmail/nodemailer-mandrill-transport?branch=master)
+[![npm version](https://badge.fury.io/js/nodemailer-mandrill-transport.svg)](https://badge.fury.io/js/nodemailer-mandrill-transport)
+[![Dependency Status](https://david-dm.org/Rebelmail/nodemailer-mandrill-transport.svg)](https://david-dm.org/Rebelmail/nodemailer-mandrill-transport)
+[![devDependency Status](https://david-dm.org/Rebelmail/nodemailer-mandrill-transport/dev-status.svg)](https://david-dm.org/Rebelmail/nodemailer-mandrill-transport?type=dev)
 
 ## Example
 
@@ -57,16 +60,17 @@ To send images as attachments:
 transport.sendMail({
   mandrillOptions: {
     images: [
-      "type": "image/png",
-      "name": "IMAGECID",
-      "content": "ZXhhbXBsZSBmaWxl",
+      'type': 'image/png',
+      'name': 'IMAGECID',
+      'content': 'ZXhhbXBsZSBmaWxl',
     ],
   }
 }, /* ... */);
 ```
 
 **name**: image cid:
-Reference your attached image in your html like:
+
+Reference your attached image in your HTML:
 
 ```html
 <img src="IMAGECID">
@@ -83,3 +87,14 @@ var imgBuff = fs.readFileSync('path/to/file');
 imgBuff.toString('base64');
 ```
 
+## Using Mandrill Templates
+
+To send email using templates stored on Mandrill:
+
+```javascript
+transport.sendMail({
+  mandrillOptions: {
+    template_name: 'MANDRILL_TEMPLATE_SLUG'
+  }
+}, /* ... */);
+```

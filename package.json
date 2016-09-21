@@ -1,10 +1,11 @@
 {
   "name": "nodemailer-mandrill-transport",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Mandrill transport for Nodemailer",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "istanbul test _mocha -- --recursive",
+    "coveralls": "istanbul cover _mocha --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -14,20 +15,22 @@
     "nodemailer",
     "mandrill"
   ],
-  "author": "RebelMail",
+  "author": "Rebelmail",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RebelMail/nodemailer-mandrill-transport/issues"
+    "url": "https://github.com/Rebelmail/nodemailer-mandrill-transport/issues"
   },
-  "homepage": "https://github.com/RebelMail/nodemailer-mandrill-transport",
+  "homepage": "https://github.com/Rebelmail/nodemailer-mandrill-transport",
   "dependencies": {
-    "email-addresses": "^2.0.1",
+    "addressparser": "^1.0.1",
     "extend": "^3.0.0",
     "mandrill-api": "^1.0.45"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "sinon": "^1.17.2"
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.12",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "sinon": "^1.17.5"
   }
 }
